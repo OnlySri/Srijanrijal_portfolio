@@ -471,6 +471,157 @@
             color: #fee2e2;
         }
 
+        /* Login Modal */
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 6, 23, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-modal.active {
+            display: flex;
+        }
+
+        .login-modal-content {
+            background: rgba(15, 23, 42, 0.98);
+            border: 1px solid rgba(220, 38, 38, 0.5);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3);
+        }
+
+        .login-modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-modal-header h3 {
+            color: #fee2e2;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .login-modal-header p {
+            color: rgba(148, 163, 184, 0.8);
+            font-size: 0.85rem;
+        }
+
+        .login-form-group {
+            margin-bottom: 18px;
+        }
+
+        .login-form-group label {
+            display: block;
+            color: rgba(148, 163, 184, 0.9);
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .login-form-group input {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(2, 6, 23, 0.8);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 6px;
+            color: #e5e7eb;
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .login-form-group input:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+        }
+
+        .login-error {
+            color: #fca5a5;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .login-error.show {
+            display: block;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: #020617;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.5);
+        }
+
+        .admin-controls {
+            display: none;
+        }
+
+        .admin-controls.show {
+            display: block;
+        }
+
+        .btn-logout {
+            padding: 6px 14px;
+            background: rgba(127, 29, 29, 0.3);
+            color: #fca5a5;
+            border: 1px solid rgba(127, 29, 29, 0.5);
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .btn-logout:hover {
+            background: rgba(127, 29, 29, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .admin-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background: rgba(220, 38, 38, 0.2);
+            border: 1px solid rgba(220, 38, 38, 0.4);
+            border-radius: 999px;
+            color: #fee2e2;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-left: 10px;
+        }
+
         footer {
             background: rgba(3, 7, 18, 0.98);
             padding: 24px 0 16px;
@@ -605,6 +756,12 @@
                     <a href="index.html#projects">Projects</a>
                     <a href="writings.html" class="active">Writings</a>
                     <a href="index.html#contact">Contact</a>
+                    <button id="loginBtn" class="btn-logout" style="display: none;">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                    <button id="logoutBtn" class="btn-logout" style="display: none;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
                 </div>
                 <div class="menu-btn">
                     <i class="fas fa-bars"></i>
@@ -617,11 +774,11 @@
     <section id="writings" class="writings">
         <div class="container">
             <div class="section-title">
-                <h2>My Writings</h2>
+                <h2>My Writings<span id="adminBadge" class="admin-badge" style="display: none;"><i class="fas fa-user-shield"></i> Admin</span></h2>
             </div>
             <div class="writings-container">
-                <!-- Add Writing Form -->
-                <div class="add-writing-form" id="addWritingForm">
+                <!-- Add Writing Form - Admin Only -->
+                <div class="add-writing-form admin-controls" id="addWritingForm">
                     <h3><i class="fas fa-plus-circle"></i> Add New Writing</h3>
                     <form id="writingForm">
                         <div class="writing-form-group">
@@ -667,6 +824,26 @@
                         Cancel
                     </button>
                 </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-content">
+            <div class="login-modal-header">
+                <h3><i class="fas fa-lock"></i> Author Login</h3>
+                <p>Enter password to manage writings</p>
+            </div>
+            <form id="loginForm">
+                <div class="login-form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" required autocomplete="off">
+                    <div class="login-error" id="loginError">Incorrect password. Please try again.</div>
+                </div>
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
             </form>
         </div>
     </div>
@@ -742,15 +919,103 @@
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
+        // Authentication System
+        const ADMIN_PASSWORD = 'Srijan2024'; // Change this to your desired password
+        const AUTH_KEY = 'writings_auth';
+
+        function isAuthenticated() {
+            return localStorage.getItem(AUTH_KEY) === 'true';
+        }
+
+        function setAuthenticated(value) {
+            if (value) {
+                localStorage.setItem(AUTH_KEY, 'true');
+            } else {
+                localStorage.removeItem(AUTH_KEY);
+            }
+            updateUI();
+        }
+
+        function updateUI() {
+            const authenticated = isAuthenticated();
+            const adminControls = document.querySelectorAll('.admin-controls');
+            const loginBtn = document.getElementById('loginBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const adminBadge = document.getElementById('adminBadge');
+
+            // Show/hide admin controls
+            adminControls.forEach(control => {
+                if (authenticated) {
+                    control.classList.add('show');
+                } else {
+                    control.classList.remove('show');
+                }
+            });
+
+            // Show/hide login/logout buttons
+            if (authenticated) {
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'inline-block';
+                adminBadge.style.display = 'inline-flex';
+            } else {
+                loginBtn.style.display = 'inline-block';
+                logoutBtn.style.display = 'none';
+                adminBadge.style.display = 'none';
+            }
+
+            // Reload writings to update edit/delete buttons
+            loadWritings();
+        }
+
+        // Login handler
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('loginError');
+
+            if (password === ADMIN_PASSWORD) {
+                setAuthenticated(true);
+                document.getElementById('loginModal').classList.remove('active');
+                document.getElementById('loginPassword').value = '';
+                errorDiv.classList.remove('show');
+            } else {
+                errorDiv.classList.add('show');
+                document.getElementById('loginPassword').value = '';
+            }
+        });
+
+        // Logout handler
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                setAuthenticated(false);
+            }
+        });
+
+        // Open login modal
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            document.getElementById('loginModal').classList.add('active');
+            document.getElementById('loginPassword').focus();
+        });
+
+        // Close login modal when clicking outside
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+                document.getElementById('loginPassword').value = '';
+                document.getElementById('loginError').classList.remove('show');
+            }
+        });
+
         // Writings Management System
         let writings = JSON.parse(localStorage.getItem('writings')) || [];
         let editingId = null;
 
         function loadWritings() {
             const writingsList = document.getElementById('writingsList');
+            const authenticated = isAuthenticated();
             
             if (writings.length === 0) {
-                writingsList.innerHTML = '<div class="no-writings">No writings yet. Add your first writing above!</div>';
+                writingsList.innerHTML = '<div class="no-writings">No writings yet.' + (authenticated ? ' Add your first writing above!' : '') + '</div>';
                 return;
             }
 
@@ -763,19 +1028,23 @@
                     minute: '2-digit'
                 });
                 
+                const adminButtons = authenticated ? `
+                    <div class="writing-item-actions">
+                        <button class="btn-edit-writing" onclick="editWriting(${index})">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn-delete-writing" onclick="deleteWriting(${index})">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                ` : '';
+                
                 return `
                     <div class="writing-item">
                         <div class="writing-content">${escapeHtml(writing.text)}</div>
                         <div class="writing-meta">
                             <span class="writing-date">${date}</span>
-                            <div class="writing-item-actions">
-                                <button class="btn-edit-writing" onclick="editWriting(${index})">
-                                    <i class="fas fa-edit"></i> Edit
-                                </button>
-                                <button class="btn-delete-writing" onclick="deleteWriting(${index})">
-                                    <i class="fas fa-trash"></i> Delete
-                                </button>
-                            </div>
+                            ${adminButtons}
                         </div>
                     </div>
                 `;
@@ -790,6 +1059,11 @@
 
         document.getElementById('writingForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            if (!isAuthenticated()) {
+                alert('You must be logged in to add writings.');
+                return;
+            }
             
             const text = document.getElementById('writingText').value.trim();
             
@@ -812,6 +1086,10 @@
         });
 
         window.editWriting = function(index) {
+            if (!isAuthenticated()) {
+                alert('You must be logged in to edit writings.');
+                return;
+            }
             editingId = index;
             const writing = writings[index];
             document.getElementById('editWritingText').value = writing.text;
@@ -820,6 +1098,11 @@
 
         document.getElementById('editWritingForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            if (!isAuthenticated()) {
+                alert('You must be logged in to edit writings.');
+                return;
+            }
             
             const text = document.getElementById('editWritingText').value.trim();
             
@@ -841,6 +1124,10 @@
         });
 
         window.deleteWriting = function(index) {
+            if (!isAuthenticated()) {
+                alert('You must be logged in to delete writings.');
+                return;
+            }
             if (confirm('Are you sure you want to delete this writing?')) {
                 writings.splice(index, 1);
                 localStorage.setItem('writings', JSON.stringify(writings));
@@ -873,7 +1160,7 @@
         });
 
         window.addEventListener('load', function() {
-            loadWritings();
+            updateUI();
         });
     </script>
 </body>
