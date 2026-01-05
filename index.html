@@ -327,6 +327,17 @@
             box-shadow: 0 12px 26px rgba(15, 23, 42, 0.9);
         }
 
+        #resumeRequestBtn {
+            border: 1px solid rgba(220, 38, 38, 0.5);
+            background: rgba(220, 38, 38, 0.2);
+            color: #fee2e2;
+        }
+
+        #resumeRequestBtn:hover {
+            background: rgba(220, 38, 38, 0.4);
+            border-color: rgba(220, 38, 38, 0.7);
+        }
+
         .social-links-hero {
             display: flex;
             gap: 10px;
@@ -841,6 +852,375 @@
             font-size: 0.75rem;
         }
 
+        /* Authentication Styles */
+        .protected-content {
+            display: none;
+        }
+
+        .protected-content.show {
+            display: block;
+        }
+
+        .access-request-message {
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(220, 38, 38, 0.4);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(220, 38, 38, 0.2);
+        }
+
+        .access-request-message h3 {
+            color: #fee2e2;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .access-request-message p {
+            color: rgba(148, 163, 184, 0.9);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .btn-request-access {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: #020617;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+
+        .btn-request-access:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.5);
+        }
+
+        /* Login Modal */
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 6, 23, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-modal.active {
+            display: flex;
+        }
+
+        .login-modal-content {
+            background: rgba(15, 23, 42, 0.98);
+            border: 1px solid rgba(220, 38, 38, 0.5);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3);
+        }
+
+        .login-modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-modal-header h3 {
+            color: #fee2e2;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .login-modal-header p {
+            color: rgba(148, 163, 184, 0.8);
+            font-size: 0.85rem;
+        }
+
+        .login-form-group {
+            margin-bottom: 18px;
+        }
+
+        .login-form-group label {
+            display: block;
+            color: rgba(148, 163, 184, 0.9);
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .login-form-group input {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(2, 6, 23, 0.8);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 6px;
+            color: #e5e7eb;
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .login-form-group input:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+        }
+
+        .login-error {
+            color: #fca5a5;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .login-error.show {
+            display: block;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: #020617;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.5);
+        }
+
+        .btn-logout {
+            padding: 6px 14px;
+            background: rgba(127, 29, 29, 0.3);
+            color: #fca5a5;
+            border: 1px solid rgba(127, 29, 29, 0.5);
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .btn-logout:hover {
+            background: rgba(127, 29, 29, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* Email Access Panel */
+        .email-access-panel {
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(220, 38, 38, 0.4);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(220, 38, 38, 0.2);
+        }
+
+        .email-access-panel h3 {
+            color: #fee2e2;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .email-access-panel p {
+            color: rgba(148, 163, 184, 0.9);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .email-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .email-input-group input {
+            flex: 1;
+            padding: 10px 12px;
+            background: rgba(2, 6, 23, 0.8);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 6px;
+            color: #e5e7eb;
+            font-size: 0.9rem;
+        }
+
+        .email-input-group input:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+        }
+
+        .btn-check-access {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: #020617;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-check-access:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.5);
+        }
+
+        .access-status {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        .access-status.granted {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            color: #86efac;
+            display: block;
+        }
+
+        .access-status.denied {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #fca5a5;
+            display: block;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            background: rgba(15, 23, 42, 0.98);
+            border: 1px solid rgba(220, 38, 38, 0.5);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 700px;
+            display: none;
+        }
+
+        .admin-panel.show {
+            display: block;
+        }
+
+        .admin-panel h3 {
+            color: #fee2e2;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .granted-emails-list {
+            margin-top: 20px;
+        }
+
+        .granted-email-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: rgba(2, 6, 23, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .granted-email-item span {
+            color: #e5e7eb;
+            font-size: 0.9rem;
+        }
+
+        .btn-remove-email {
+            padding: 6px 12px;
+            background: rgba(127, 29, 29, 0.3);
+            color: #fca5a5;
+            border: 1px solid rgba(127, 29, 29, 0.5);
+            border-radius: 5px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-remove-email:hover {
+            background: rgba(127, 29, 29, 0.5);
+        }
+
+        .add-email-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .add-email-form input {
+            flex: 1;
+            padding: 10px 12px;
+            background: rgba(2, 6, 23, 0.8);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 6px;
+            color: #e5e7eb;
+            font-size: 0.9rem;
+        }
+
+        .add-email-form input:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+        }
+
+        .btn-add-email {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: #020617;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-add-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.5);
+        }
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero-wrapper {
@@ -951,12 +1331,18 @@
                 </div>
                 <div class="nav-links">
                     <a href="#home" class="active">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#education">Education</a>
-                    <a href="#projects">Projects</a>
+                    <a href="#about" class="protected-link">About</a>
+                    <a href="#experience" class="protected-link">Experience</a>
+                    <a href="#education" class="protected-link">Education</a>
+                    <a href="#projects" class="protected-link">Projects</a>
                     <a href="writings.html">Writings</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#contact" class="protected-link">Contact</a>
+                    <button id="loginBtn" class="btn-logout" style="display: none;">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                    <button id="logoutBtn" class="btn-logout" style="display: none;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
                 </div>
                 <div class="menu-btn">
                     <i class="fas fa-bars"></i>
@@ -978,14 +1364,18 @@
                         I'm Into <span class="tagline-text">Data</span><span class="tagline-highlight">|</span><span class="typing-cursor"></span>
                     </div>
                     <div class="hero-actions">
-                        <a href="#about" class="btn-primary">
+                        <a href="#about" class="btn-primary protected-link">
                             About Me
                             <i class="fas fa-arrow-down"></i>
                         </a>
-                        <a href="CV.SrijanRijal.pdf" class="btn-resume" id="resumeLink" target="_blank">
+                        <a href="CV.SrijanRijal.pdf" class="btn-resume protected-content" id="resumeLink" target="_blank" style="display: none;">
                             <i class="fas fa-file-pdf"></i>
                             Resume
                         </a>
+                        <button class="btn-resume" id="resumeRequestBtn" style="display: none;" onclick="requestResumeAccess()">
+                            <i class="fas fa-file-pdf"></i>
+                            Request Resume Access
+                        </button>
                     </div>
                     <div class="social-links-hero">
                         <a href="https://www.linkedin.com/in/srijan-rijal-264a64259/" target="_blank" class="social-link-hero" title="LinkedIn">
@@ -1011,7 +1401,14 @@
             <div class="section-title">
                 <h2>About Me</h2>
             </div>
-            <div class="about-content">
+            <div class="access-request-message" id="aboutAccessMessage" style="display: none;">
+                <h3><i class="fas fa-lock"></i> Access Restricted</h3>
+                <p>This section is protected. To view my full portfolio details, please request access through the contact form below. After submitting your request with your name and email, I will send you the access password privately via email.</p>
+                <a href="#contact" class="btn-request-access" onclick="requestAccess('About')">
+                    <i class="fas fa-envelope"></i> Request Access
+                </a>
+            </div>
+            <div class="about-content protected-content">
                 <div class="about-text">
                     <h3>Hi!!</h3>
                     <p>I am a Computer Science student who enjoys turning ideas into clean, interactive web experiences—and uncovering insights hidden in data.
@@ -1041,7 +1438,14 @@
             <div class="section-title">
                 <h2>Experience</h2>
             </div>
-            <div class="experience-grid">
+            <div class="access-request-message" id="experienceAccessMessage" style="display: none;">
+                <h3><i class="fas fa-lock"></i> Access Restricted</h3>
+                <p>This section is protected. To view my experience details, please request access through the contact form below. I will send you the access password privately via email.</p>
+                <a href="#contact" class="btn-request-access" onclick="requestAccess('Experience')">
+                    <i class="fas fa-envelope"></i> Request Access
+                </a>
+            </div>
+            <div class="experience-grid protected-content">
                 <div class="experience-card">
                     <div class="experience-date">Mar 2025 – Jun 2025</div>
                     <h3>WordPress Developer Intern</h3>
@@ -1064,7 +1468,14 @@
             <div class="section-title">
                 <h2>Education</h2>
             </div>
-            <div class="experience-grid">
+            <div class="access-request-message" id="educationAccessMessage" style="display: none;">
+                <h3><i class="fas fa-lock"></i> Access Restricted</h3>
+                <p>This section is protected. To view my education details, please request access through the contact form below. I will send you the access password privately via email.</p>
+                <a href="#contact" class="btn-request-access" onclick="requestAccess('Education')">
+                    <i class="fas fa-envelope"></i> Request Access
+                </a>
+            </div>
+            <div class="experience-grid protected-content">
                 <div class="experience-card">
                     <div class="experience-date">2023 – 2026 (Expected)</div>
                     <h3>BSc (Hons) in Computer Science (Data Science Specialization) – Final Year</h3>
@@ -1081,7 +1492,14 @@
             <div class="section-title">
                 <h2>My Projects</h2>
             </div>
-            <div class="projects-grid">
+            <div class="access-request-message" id="projectsAccessMessage" style="display: none;">
+                <h3><i class="fas fa-lock"></i> Access Restricted</h3>
+                <p>This section is protected. To view my projects, please request access through the contact form below. I will send you the access password privately via email.</p>
+                <a href="#contact" class="btn-request-access" onclick="requestAccess('Projects')">
+                    <i class="fas fa-envelope"></i> Request Access
+                </a>
+            </div>
+            <div class="projects-grid protected-content">
                 <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-brain" style="color: #fee2e2;"></i>
@@ -1193,8 +1611,12 @@
         <div class="section-title">
             <h2>Get In Touch</h2>
         </div>
+        <div class="access-request-message" id="contactAccessMessage" style="display: none;">
+            <h3><i class="fas fa-lock"></i> Request Portfolio Access</h3>
+            <p>To view my full portfolio (About, Experience, Education, Projects), please fill out the contact form below with your name and email. I'll review your request and send you the access password privately via email.</p>
+        </div>
         <div class="contact-content">
-            <div class="contact-info">
+            <div class="contact-info protected-content">
                 <div class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-phone"></i>
@@ -1256,7 +1678,27 @@
             </div>
         </div>
     </div>
-</section>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-content">
+            <div class="login-modal-header">
+                <h3><i class="fas fa-lock"></i> Author Login</h3>
+                <p>Enter password to access full portfolio</p>
+            </div>
+            <form id="loginForm">
+                <div class="login-form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" required autocomplete="off">
+                    <div class="login-error" id="loginError">Incorrect password. Please try again.</div>
+                </div>
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -1335,6 +1777,23 @@
             const form = this;
             const submitButton = form.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.textContent;
+            
+            // Check if this is an access request
+            const subject = form.querySelector('input[name="subject"]').value;
+            const messageField = form.querySelector('textarea[name="message"]');
+            const requesterEmail = form.querySelector('input[name="email"]').value;
+            const requesterName = form.querySelector('input[name="name"]').value;
+            const isAccessRequest = subject.toLowerCase().includes('access request') || 
+                                   subject.toLowerCase().includes('portfolio access');
+            
+            if (isAccessRequest) {
+                // Add access request info to the message
+                const accessMessage = `\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[ACCESS REQUEST]\n\nRequester Email: ${requesterEmail}\nRequester Name: ${requesterName}\n\nPlease send the access password to this email address privately.\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
+                
+                if (!messageField.value.includes('[ACCESS REQUEST]')) {
+                    messageField.value += accessMessage;
+                }
+            }
             
             // Disable button and show loading state
             submitButton.disabled = true;
@@ -1435,10 +1894,216 @@
             setTimeout(typeText, 1000);
         }
 
-        // Resume link handler - already set in href, this is just for additional handling if needed
-        document.getElementById('resumeLink').addEventListener('click', function(e) {
-            // Link will open directly via href attribute
+        // Resume access request function
+        function requestResumeAccess() {
+            requestAccess('Resume');
+            // Scroll to contact section
+            setTimeout(() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    window.scrollTo({
+                        top: contactSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        }
+
+        // Resume link handler - protect from unauthorized access
+        const resumeLink = document.getElementById('resumeLink');
+        if (resumeLink) {
+            resumeLink.addEventListener('click', function(e) {
+                if (!isAuthenticated()) {
+                    e.preventDefault();
+                    requestResumeAccess();
+                    return false;
+                }
+                // Allow download if authenticated
+            });
+        }
+
+        // Authentication System
+        const ADMIN_PASSWORD = 'Srijan2024'; // Same password as writings page
+        const AUTH_KEY = 'portfolio_auth';
+        const YOUR_EMAIL = 'srijanrijal494@gmail.com'; // Your email for access requests
+
+        function isAuthenticated() {
+            return localStorage.getItem(AUTH_KEY) === 'true';
+        }
+
+        function setAuthenticated(value) {
+            if (value) {
+                localStorage.setItem(AUTH_KEY, 'true');
+            } else {
+                localStorage.removeItem(AUTH_KEY);
+            }
+            updateUI();
+        }
+
+        function updateUI() {
+            const authenticated = isAuthenticated();
+            
+            const protectedContents = document.querySelectorAll('.protected-content');
+            const accessMessages = document.querySelectorAll('.access-request-message');
+            const protectedLinks = document.querySelectorAll('.protected-link');
+            const loginBtn = document.getElementById('loginBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            // Show/hide protected content
+            protectedContents.forEach(content => {
+                if (authenticated) {
+                    content.classList.add('show');
+                    if (content.style.display === 'none') {
+                        content.style.display = '';
+                    }
+                } else {
+                    content.classList.remove('show');
+                    if (content.id === 'resumeLink') {
+                        content.style.display = 'none';
+                    }
+                }
+            });
+
+            // Show/hide access request messages
+            accessMessages.forEach(message => {
+                if (authenticated) {
+                    message.style.display = 'none';
+                } else {
+                    message.style.display = 'block';
+                }
+            });
+
+            // Show/hide protected links in navigation
+            protectedLinks.forEach(link => {
+                if (!authenticated) {
+                    link.style.display = 'none';
+                } else {
+                    link.style.display = 'inline-block';
+                }
+            });
+
+            // Show/hide login/logout buttons
+            if (authenticated) {
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'inline-block';
+            } else {
+                loginBtn.style.display = 'inline-block';
+                logoutBtn.style.display = 'none';
+            }
+
+            // Show/hide resume link
+            const resumeLink = document.getElementById('resumeLink');
+            const resumeRequestBtn = document.getElementById('resumeRequestBtn');
+            if (authenticated) {
+                if (resumeLink) resumeLink.style.display = 'inline-flex';
+                if (resumeRequestBtn) resumeRequestBtn.style.display = 'none';
+            } else {
+                if (resumeLink) resumeLink.style.display = 'none';
+                if (resumeRequestBtn) resumeRequestBtn.style.display = 'inline-flex';
+            }
+        }
+
+        // Make functions globally accessible
+        window.requestResumeAccess = function() {
+            requestAccess('Resume');
+            setTimeout(() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    window.scrollTo({
+                        top: contactSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        };
+
+        // Handle protected link clicks
+        document.querySelectorAll('.protected-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (!isAuthenticated()) {
+                    e.preventDefault();
+                    const section = this.getAttribute('href').substring(1);
+                    requestAccess(section);
+                    // Scroll to contact section
+                    setTimeout(() => {
+                        const contactSection = document.getElementById('contact');
+                        if (contactSection) {
+                            window.scrollTo({
+                                top: contactSection.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 100);
+                }
+            });
         });
+
+        // Request access function - just redirects to contact form
+        function requestAccess(section) {
+            const sectionName = section === 'Resume' ? 'Resume/CV' : `${section} Section`;
+            const subject = `Portfolio Access Request - ${sectionName}`;
+            const body = `Hello Srijan,\n\nI would like to request access to view your ${sectionName.toLowerCase()} on your portfolio website.\n\nPlease grant me access.\n\nThank you!`;
+            
+            // Pre-fill contact form
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                const subjectInput = contactForm.querySelector('input[name="subject"]');
+                const messageInput = contactForm.querySelector('textarea[name="message"]');
+                
+                if (subjectInput) {
+                    subjectInput.value = subject;
+                }
+                if (messageInput) {
+                    messageInput.value = body;
+                }
+            }
+            // No automatic email - they need to submit contact form
+        }
+
+        // Login handler
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('loginError');
+
+            if (password === ADMIN_PASSWORD) {
+                setAuthenticated(true);
+                document.getElementById('loginModal').classList.remove('active');
+                document.getElementById('loginPassword').value = '';
+                errorDiv.classList.remove('show');
+            } else {
+                errorDiv.classList.add('show');
+                document.getElementById('loginPassword').value = '';
+            }
+        });
+
+        // Logout handler
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                setAuthenticated(false);
+            }
+        });
+
+        // Open login modal
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            document.getElementById('loginModal').classList.add('active');
+            document.getElementById('loginPassword').focus();
+        });
+
+        // Close login modal when clicking outside
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+                document.getElementById('loginPassword').value = '';
+                document.getElementById('loginError').classList.remove('show');
+            }
+        });
+
+        // Update UI on page load
+        window.addEventListener('load', function() {
+            updateUI();
+        });
+
     </script>
 </body>
 </html>
